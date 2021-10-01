@@ -12,6 +12,10 @@ namespace PreTask
 
         public static int FindGDC(int a, int b, ref Stopwatch stopwatch)
         {
+            if (b < 0 || b < 0)
+                throw new Exception("The number must not be negative");
+            if (b == 0 && a == 0)
+                throw new Exception("The number must not be zero");
             while (a != b)
             {
                 if (a > b)
@@ -42,7 +46,10 @@ namespace PreTask
         }
         public static int FindBinaryGDC(int a,int b, ref Stopwatch stopwatch)
         {
-            
+            if (b < 0 || b < 0)
+                throw new Exception("The number must not be negative");
+            if (b == 0 && a == 0)
+                throw new Exception("The number must not be zero");
             if (a == b)
                 return a;
             if (a == 0)
