@@ -6,11 +6,11 @@ using System.Diagnostics;
 
 namespace PreTask
 {
-    class Euclidean
+    public class Euclidean
     {
         //private Stopwatch stopwatch = new Stopwatch();
 
-        public int FindGDC(int a, int b, ref Stopwatch stopwatch)
+        public static int FindGDC(int a, int b, ref Stopwatch stopwatch)
         {
             while (a != b)
             {
@@ -21,28 +21,28 @@ namespace PreTask
             }            
             return a;
         }
-        public int FindGDC(int a,int b,int c, ref Stopwatch stopwatch)
+        public static int FindGDC(int a,int b,int c, ref Stopwatch stopwatch)
         {
-            int result = FindGDC(a, b, stopwatch);
-            result = FindGDC(result, c);
+            int result = FindGDC(a, b, ref stopwatch);
+            result = FindGDC(result, c, ref stopwatch);
             return result;
         }
-        public int FindGDC(int a,int b,int c,int d)
+        public static int FindGDC(int a,int b,int c,int d, ref Stopwatch stopwatch)
         {
-            int result = FindGDC(a, b, c);
-            result = FindGDC(result, d);
+            int result = FindGDC(a, b, c, ref stopwatch);
+            result = FindGDC(result, d, ref stopwatch);
             
             return result;
         }
-        public int FIndGDC(int a, int b, int c, int d,int e)
+        public static int FindGDC(int a, int b, int c, int d,int e, ref Stopwatch stopwatch)
         {
-            int result = FindGDC(a, b, c,d);
-            result = FindGDC(result, e);
+            int result = FindGDC(a, b, c, d, ref stopwatch);
+            result = FindGDC(result, e, ref stopwatch);
             return result;
         }
-        public int FindBinaryGDC(int a,int b,ref stopwa)
+        public static int FindBinaryGDC(int a,int b, ref Stopwatch stopwatch)
         {
-            stopwatch.Start();
+            
             if (a == b)
                 return a;
             if (a == 0)
@@ -52,18 +52,18 @@ namespace PreTask
             if (a % 2 == 0)
             {
                 if (b % 2 == 1)
-                    return FindBinaryGDC(a / 2, b);
+                    return FindBinaryGDC(a / 2, b, ref stopwatch);
                 else
-                    return 2 * FindBinaryGDC(a / 2, b / 2);
+                    return 2 * FindBinaryGDC(a / 2, b / 2, ref stopwatch);
             }
             else
             {
                 if (b % 2 == 0)
-                    return FindBinaryGDC(a, b / 2);
+                    return FindBinaryGDC(a, b / 2, ref stopwatch);
                 if (a > b)
-                    return FindBinaryGDC((a - b) / 2, b);
+                    return FindBinaryGDC((a - b) / 2, b, ref stopwatch);
                 else
-                    return FindBinaryGDC((b - a) / 2, a);
+                    return FindBinaryGDC((b - a) / 2, a, ref stopwatch);
             }
             
         }

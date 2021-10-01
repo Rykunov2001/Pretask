@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace PreTask
 {
@@ -6,7 +7,14 @@ namespace PreTask
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            Console.WriteLine(Euclidean.FindGDC( 1568 , 4,ref stopwatch));
+            Console.WriteLine( stopwatch.Elapsed);
+            stopwatch.Restart();
+            Console.WriteLine(Euclidean.FindBinaryGDC(1568, 4, ref stopwatch));
+            Console.WriteLine(stopwatch.Elapsed);
+
         }
     }
 }
